@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.excludePattern" value=".*/static/.*" />
+	<package name="test" extends="struts-default">
+
+		<action name="index" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="javaplanner">
+			<result name="success">/article.jsp</result>
+			<result name="error" type="redirectAction">login.action</result>
+		</action>
+		<action name="05_events" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="events_05">
+			<result name="success">/data.jsp</result>
+		</action>
+		
+		<action name="" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="javaplanner">
+			<result name="success">/article.jsp</result>
+			<result name="error" type="redirectAction">login.action</result>
+		</action>
+		<action name="05_events" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="events_05">
+			<result name="success">/data.jsp</result>
+		</action>
+
+
+
+<action name="04_recurring" class="org.apache.struts.demoapp_struts.action.Recurring" method="javaplanner">
+			<result name="success">/article.jsp</result>
+			<result name="error" type="redirectAction">login.action</result>
+		</action>
+		<action name="04_events" class="org.apache.struts.demoapp_struts.action.Recurring" method="events_04">
+			<result name="success">/data.jsp</result>
+		</action>
+
+<action name="06_map" class="org.apache.struts.demoapp_struts.action.MapAction" method="javaplanner">
+			<result name="success">/article.jsp</result>
+			<result name="error" type="redirectAction">login.action</result>
+		</action>
+		<action name="06_events" class="org.apache.struts.demoapp_struts.action.MapAction" method="events_06">
+			<result name="success">/data.jsp</result>
+		</action>
+		
+		
+		<action name="login" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="login">
+			<result name="success">/login.jsp</result>
+			<result name="login" type="redirectAction">index.action</result>
+			<result name="error">login.jsp</result>
+		</action>
+		
+		<action name="logout" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="logout">
+			<result name="success" type="redirectAction">index.action</result>
+		</action>
+
+
+<action name="16_ical" class="org.apache.struts.demoapp_struts.action.JobDemoAction" method="ical_16">
+			<result name="success" type="stream">
+				<param name="contentType">/ical</param>
+				<param name="inputName">ical</param>
+				<param name="contentDisposition">attachment;filename="Employeecalendar.ics"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			</action>
+			<action name="16_ical4" class="org.apache.struts.demoapp_struts.action.Recurring" method="ical_164">
+			<result name="success" type="stream">
+				<param name="contentType">/ical</param>
+				<param name="inputName">ical</param>
+				<param name="contentDisposition">attachment;filename="SelfRecurringcalendar.ics"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			</action>
+			<action name="16_ical3" class="org.apache.struts.demoapp_struts.action.MapAction" method="ical_163">
+			<result name="success" type="stream">
+				<param name="contentType">/ical</param>
+				<param name="inputName">ical</param>
+				<param name="contentDisposition">attachment;filename="Mapcalendar.ics"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+</struts>
